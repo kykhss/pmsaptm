@@ -795,7 +795,7 @@ if(clason > 7){
         const totalObt = (parseFloat(subject.obtTeMark)||0);//+(parseFloat(subject.obtCeMark)||0)
         const totalMax = (parseFloat(subject.maxTeMark)||0);//+(parseFloat(subject.maxCeMark)||0)
         const grade = getGrade(totalMax,totalObt,clason);
-        const isPassed = ((parseFloat(subject.obtTeMark)||0)/(parseFloat(subject.maxTeMark)||0))*100 >= 30;
+        const isPassed = ((parseFloat(subject.obtTeMark)>=18;//||0)/(parseFloat(subject.maxTeMark)||0))*100 >= 30;
         const statusIcon = isPassed ? 'P':'F';//'✔️' : '❌'; // Tick for pass, Cross for fail
         const rowStyle = isPassed ? "" : 'style="background-color: #ffcccc; font-weight: bold;"'; // Red background for fail
         if (subject.obtTeMark === "Ab") {

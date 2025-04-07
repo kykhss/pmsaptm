@@ -265,8 +265,8 @@ margin:auto;
     <div id="searchField" class="container" style="display:block;">
         <div>
             <br>
-             <h3 class="arabic"
->KYHSS ATHAVANAD</h3>
+             <h3 class="arabic">KYHSS ATHAVANAD</h3>
+             <h2> School Madrassa</h2>
             <img id="loginemblom3" src="https://drive.google.com/thumbnail?id=1BKHBRTLhL6xokJ-Bz8fkM3hjllsKIqvb&sz=800" width="100" height="100">
            
             <h3  style="margin-top:0px;margin-bottom:0.3em;" class="malayalam">School Code:19094 : HSS Code :11118</h3>
@@ -611,6 +611,7 @@ if(clason > 7){
 }
 
 
+
     </script>
      <script type="module">
         import { db } from "./firebase-config.js";
@@ -768,10 +769,12 @@ if(clason > 7){
             
     let progressHTML = `
        <div id="progressCard">
+        <h1 class="arabic" style="margin-bottom:0px;">KYKHSS ATHAVANAD</h1>
         <img id="loginemblom3" src="https://drive.google.com/thumbnail?id=1BKHBRTLhL6xokJ-Bz8fkM3hjllsKIqvb&sz=800" width="150" height="150" z-index="-900">
-            <h1 class="arabic" style="margin-bottom:0px;">KYKHSS ATHAVANAD</h1>
+            <h1 class="arabic" style="margin-bottom:0px;">School Madrassa</h1>
             <h2 style="margin-top:0px;margin-bottom:0.3em;" class="malayalam">School Code: 19094; HSS Code:11118</h2>
             <h3 style="margin-top: 0.2em;">PMSA ORPHANAGE CAMPUS KATTILANGADI</h3>
+            <h2 style="color:red">Annual Examination Result</h2>
             <div class="progress-card">
                 <p style="display: flex; gap: 10px; font-size:16px;"><strong>Name of Student : </strong><span style="color:red; font-weight:bold;">${studentInfo.name}</span></p >
                 <p style="font-size:16px;"><strong>Admission Number:</strong> <span style="color:black; font-weight:bold;">${studentInfo.adnumber}</span></p>
@@ -795,7 +798,7 @@ if(clason > 7){
         const totalObt = (parseFloat(subject.obtTeMark)||0);//+(parseFloat(subject.obtCeMark)||0)
         const totalMax = (parseFloat(subject.maxTeMark)||0);//+(parseFloat(subject.maxCeMark)||0)
         const grade = getGrade(totalMax,totalObt,clason);
-        const isPassed = ((parseFloat(subject.obtTeMark)>=18;//||0)/(parseFloat(subject.maxTeMark)||0))*100 >= 30;
+        const isPassed = parseFloat(subject.obtTeMark)>=18; //||0)/(parseFloat(subject.maxTeMark)||0))*100 >= 30;
         const statusIcon = isPassed ? 'P':'F';//'✔️' : '❌'; // Tick for pass, Cross for fail
         const rowStyle = isPassed ? "" : 'style="background-color: #ffcccc; font-weight: bold;"'; // Red background for fail
         if (subject.obtTeMark === "Ab") {
@@ -843,7 +846,7 @@ if(clason > 7){
     }
 
     progressHTML += `</div></div></div>`;
-    if(abcount>5){
+    if(abcount>10){
         document.getElementById("progressCardContainer").innerHTML = "<p style='color:red; font-size:18px;background-color:orange;'>Your result has been withheld by the office and is not available at this time. <h3>folowing are The Reasons</h3> <li> SSLC Scribe Helping Examiners</li><li>Continuous Absenteeis (more than 5 subjects)</li></p?";
         document.getElementById("printBtn").style.display = "flex";
         document.getElementById("searchField").style.display = "none";
